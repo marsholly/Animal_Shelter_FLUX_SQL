@@ -1,0 +1,31 @@
+.banner {
+  background: url('http://www.215chin.com.tw/upload/banner_ins_list/d483d81cb1d154a8e6c3587e8c538ff9.jpg');
+  background-size: 100% 200px;
+  height: 200px;
+}
+
+.mainTitle {
+  font-size: 60px;
+  font-family: cursive;
+  font-weight: bolder;
+  text-align: center;
+  padding-left: 120px;
+  padding-top: 40px;
+}
+
+nav {
+  margin-top: -19px;
+}
+
+.leftpetsIcon {
+  margin-left: 20px;
+}
+
+.searchIcon {
+  margin-right: 20px;
+}
+
+.addClientFrame {
+  background-image: url('http://pic.58pic.com/58pic/13/73/29/62y58PICn43_1024.jpg');
+  height: 500px;
+}

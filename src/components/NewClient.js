@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 
-export default class HomePage extends Component {
+export default class NewClient extends Component {
   render() {
     return (
-      <div className="container">
+      <div className="addClientFrame">
 
       </div>
     )
