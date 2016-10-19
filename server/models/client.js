@@ -6,6 +6,7 @@ db.query(`CREATE TABLE IF NOT EXISTS CLIENTS(
   id varchar(50),
   clientName varchar(100),
   clientGender varchar(50),
+  clientImg varchar(500),
   address varchar(500),
   phoneNumber int,
   primary key (id)

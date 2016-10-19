@@ -7,7 +7,10 @@ db.query(`CREATE TABLE IF NOT EXISTS ANIMALS(
   petName varchar(100),
   petAge int,
   petGender varchar(50),
-  species varchar(50),
+  petImg varchar(500),
+  breed varchar(50),
+  size varchar(50),
+  color varchar(50),
   ownerId varchar(50),
   primary key (id)
 )`, err => {
