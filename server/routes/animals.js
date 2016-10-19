@@ -16,6 +16,13 @@ router.route('/')
       .catch(err => res.status(400).send(err))
   })
 
+router.route('/hasOwner')
+  .get((req, res) => {
+    Animal.getAllHasOwnerPets()
+      .then(animals => res.send(animals))
+      .catch(err => res.status(400).send(err))
+  })
+
 router.route('/:id')
   .get((req, res) => {
     Animal.getOnePet(req.params.id)
@@ -34,5 +41,7 @@ router.route('/:id')
       .then(animals => res.send(animals))
       .catch(err => res.status(400).send(err))
   })
+
+
 
 module.exports = router;
