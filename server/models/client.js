@@ -1,6 +1,5 @@
 const db = require('../config/db');
 const squel = require('squel');
-const uuid = require('uuid');
 
 db.query(`CREATE TABLE IF NOT EXISTS CLIENTS(
   id varchar(50),
@@ -25,7 +24,7 @@ exports.getAllClients = () => {
 
 exports.createOneClient = (client) => {
   return new Promise((resolve, reject) => {
-    let sql = squel.insert().into('CLIENTS').setFields(client).set('id', uuid()).toString();
+    let sql = squel.insert().into('CLIENTS').setFields(client).toString();
     db.query(sql, (err, clients) => {
       if (err) return reject(err);
       resolve('success');
