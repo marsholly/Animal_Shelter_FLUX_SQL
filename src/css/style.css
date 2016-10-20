@@ -45,6 +45,10 @@ nav {
   height: 180px;
 }
 
+.animalContent {
+  height: 200px;
+}
+
 .clientBl {
   margin-top: 20px;
   margin-bottom: 40px;
@@ -57,7 +61,6 @@ nav {
 
 .size {
   padding-left: 36px;
-  /*margin-left: 230px;*/
 }
 /*.addClientFrame {
   background-image: url('http://pic.58pic.com/58pic/13/73/29/62y58PICn43_1024.jpg');

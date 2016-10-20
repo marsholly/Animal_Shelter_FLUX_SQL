@@ -54,23 +54,26 @@ export default class AnimalsList extends Component {
     let animalBlock;
     if (animals) {
         animalBlock = animals.map(animal => {
-        let {animalName, animalGender, animalImg, address, phoneNumber, id} = animal;
+        let {petName, petGender, petImg, petAge, breed, size, color, id} = animal;
         return (
-          <div className="col s12 m3 animalBl" key={id}>
+          <div className="col s12 m3 clientBl" key={id}>
             <div className="card small">
               <div className="card">
                 <div className="card-image">
                   <img src={petImg} width="200" height="160"/>
                 </div>
-                <div className="card-content animalsContent">
-                  <p className="name">{ petGender === 'male' ? <img src="http://findicons.com/files/icons/438/dating/256/male.png" width="30" height="30"/> : <img src="http://findicons.com/files/icons/438/dating/256/female.png" width="30" height="30"/>} {animalName} </p>
+                <div className="card-content animalContent">
+                  <p className="name">{ petGender === 'male' ? <img src="http://findicons.com/files/icons/438/dating/256/male.png" width="30" height="30"/> : <img src="http://findicons.com/files/icons/438/dating/256/female.png" width="30" height="30"/>} {petName} </p>
                   <br/>
-                  <p>CellPhone :{phoneNumber}</p>
-                  <p>{address}</p>
+                  <p>Age: {petAge}</p>
+                  <p>Breed: {breed}</p>
+                  <p>Size: {size}</p>
+                  <p>Color: {color}</p>
                 </div>
                 <div className="card-action text-center">
                   <a data-toggle='modal' data-target={'#'+ modalId} onClick={() => this.getAnimalId(id)}>EDIT</a>
                   <a onClick={() => this.removeAnimal(id)}>DELETE</a>
+                  <a onClick={() => this.adopt(id)}><i className="material-icons">child_friendly</i></a>
                 </div>
               </div>
             </div>
