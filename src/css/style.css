@@ -62,6 +62,11 @@ nav {
 .size {
   padding-left: 36px;
 }
+
+.imgArea {
+  margin-left: 15px;
+  padding-bottom: 20px;
+}
 /*.addClientFrame {
   background-image: url('http://pic.58pic.com/58pic/13/73/29/62y58PICn43_1024.jpg');
   height: 500px;

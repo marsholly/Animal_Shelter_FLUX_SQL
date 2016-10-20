@@ -51,7 +51,7 @@ export default class HasOwnerAnimals extends Component {
                 <div className="card-content animalContent">
                   <p>Client Name: {clientName}</p>
                   <p>Pet Name: {petName}</p>
-                  <img src={petImg} width="200" height="160"/>
+                  <img className="imgArea" src={petImg} width="200" height="160"/>
                 </div>
               </div>
             </div>
