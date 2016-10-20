@@ -12,8 +12,21 @@ const ServerActions = {
       type: 'RECEIVE_ONE_CLIENT',
       payload: {client}
     })
+  },
+
+  receiveAllAnimals(animals) {
+    AppDispatcher.dispatch ({
+      type: 'RECEIVE_ALL_ANIMALS',
+      payload: {animals}
+    })
+  },
+  receiveOneAnimal(animal) {
+    AppDispatcher.dispatch ({
+      type: 'RECEIVE_ONE_ANIMAL',
+      payload: {animal}
+    })
   }
-  
+
 }
 
 export default ServerActions;

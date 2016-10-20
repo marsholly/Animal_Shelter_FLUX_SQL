@@ -10,7 +10,7 @@ db.query(`CREATE TABLE IF NOT EXISTS CLIENTS(
   phoneNumber int,
   primary key (id)
 )`, err => {
-  if(err) throw err;
+  if(err) throw new Error(err);
 })
 
 exports.getAllClients = () => {

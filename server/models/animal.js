@@ -5,7 +5,7 @@ const uuid = require('uuid');
 db.query(`CREATE TABLE IF NOT EXISTS ANIMALS(
   id varchar(50),
   petName varchar(100),
-  petAge int,
+  petAge varchar(50),
   petGender varchar(50),
   petImg varchar(500),
   breed varchar(50),
@@ -14,7 +14,7 @@ db.query(`CREATE TABLE IF NOT EXISTS ANIMALS(
   ownerId varchar(50),
   primary key (id)
 )`, err => {
-  if(err) throw err;
+  if(err) throw new Error(err);
 })
 
 exports.getAllPets = () => {

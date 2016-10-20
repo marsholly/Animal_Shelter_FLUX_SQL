@@ -34,7 +34,7 @@ export default class ClientsList extends Component {
     let { id } = this.state;
     let {phoneNumber} = newInfo;
     newInfo.phoneNumber = Number(phoneNumber);
-    // ClientActions.updateClientInfo(id, newInfo);
+    ClientActions.updateClient(id, newInfo);
   }
 
   removeClient = (id) => {
@@ -43,7 +43,6 @@ export default class ClientsList extends Component {
 
   render() {
     let { clients } = this.state;
-    console.log('clients:', clients);
     let modalId = 'EditClientModal';
     let schema = {
       clientName: {type: 'text', label: 'Name', required:true},
@@ -70,7 +69,7 @@ export default class ClientsList extends Component {
                   <p>{address}</p>
                 </div>
                 <div className="card-action text-center">
-                  <a >EDIT</a>
+                  <a data-toggle='modal' data-target={'#'+ modalId} onClick={() => this.getClientId(id)}>EDIT</a>
                   <a onClick={() => this.removeClient(id)}>DELETE</a>
                 </div>
               </div>

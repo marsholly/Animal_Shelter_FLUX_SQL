@@ -31,6 +31,49 @@ const API = {
       .then(res =>  res.data)
       .then(this.getAllClients())
       .catch(console.error)
+  },
+  updateClient(id, newInfo) {
+    axios.put(`/api/clients/${id}`, newInfo)
+      .then(res =>  res.data)
+      .then(this.getAllClients())
+      .catch(console.error)
+  },
+
+  getAllAnimals() {
+    axios.get('/api/animals/')
+      .then(res =>  res.data)
+      .then(ServerActions.receiveAllAnimals)
+      .catch(console.error)
+  },
+  createNewAnimal(newAnimal) {
+    axios.post('/api/animals/', newAnimal)
+      .then(res =>  res.data)
+      .then(this.getAllAnimals())
+      .catch(console.error)
+  },
+  getOneAnimal(id) {
+    axios.get(`/api/animals/${id}`)
+      .then(res =>  res.data)
+      .then(ServerActions.receiveOneAnimal)
+      .catch(console.error)
+  },
+  updateAnimalInfo(id, newInfo) {
+    axios.put(`/api/animals/${id}`, newInfo)
+      .then(res =>  res.data)
+      .then(this.getOneAnimal(id))
+      .catch(console.error)
+  },
+  removeAnimal(id) {
+    axios.delete(`/api/animals/${id}`)
+      .then(res =>  res.data)
+      .then(this.getAllAnimals())
+      .catch(console.error)
+  },
+  updateAnimal(id, newInfo) {
+    axios.put(`/api/animals/${id}`, newInfo)
+      .then(res =>  res.data)
+      .then(this.getAllAnimals())
+      .catch(console.error)
   }
 }
 
