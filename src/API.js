@@ -80,6 +80,12 @@ const API = {
       .then(res =>  res.data)
       .then(ServerActions.receivehasOwnerAnimals)
       .catch(console.error)
+  },
+  getAllOwnerPets() {
+    axios.get('/api/animals/someOwnerPets')
+      .then(res =>  res.data)
+      .then(ServerActions.receiveSomeOwnerAnimals)
+      .catch(console.error)
   }
 }
 

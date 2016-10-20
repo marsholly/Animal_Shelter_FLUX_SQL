@@ -23,7 +23,7 @@ export default class Layout extends Component {
           <li><Link to="/newClient"><i className="material-icons">person add</i></Link></li>
           <li><Link to="/allClients"><i className="material-icons">account_circle</i></Link></li>
           <li className="divider"></li>
-          <li><Link to="/"><i className="material-icons">favorite</i></Link></li>
+          <li><Link to="/owner"><i className="material-icons">favorite</i></Link></li>
         </ul>
         <ul id="dropdown2" className="dropdown-content">
           <li><Link to="/newAnimal"><i className="material-icons">add_circle</i></Link></li>

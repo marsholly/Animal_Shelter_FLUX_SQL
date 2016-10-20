@@ -76,7 +76,34 @@ exports.getAllHasOwnerPets = () => {
                    .field('petImg')
                    .field('clientName')
                    .field('clientImg')
+                   .field('ownerId')
+                   .field('petAge')
+                   .field('petGender')
+                   .field('breed')
+                   .field('size')
+                   .field('color')
+                   .field('ANIMALS.id', 'petId')
                    .join('CLIENTS', null, 'ANIMALS.ownerId = CLIENTS.id')
+                   .toString();
+    db.query(sql, (err, animals) => {
+      if(err) return reject(err);
+      resolve(animals);
+    })
+  })
+}
+
+exports.getSomeOwnerPets = () => {
+  return new Promise((resolve, reject) => {
+    let sql = squel.select()
+                   .from('ANIMALS')
+                   .field('clientName')
+                   .field('clientImg')
+                   .field('ownerId')
+                   .field('address')
+                   .field('clientGender')
+                   .field('phoneNumber')
+                   .join('CLIENTS', null, 'ANIMALS.ownerId = CLIENTS.id')
+                   .group('ownerId')
                    .toString();
     db.query(sql, (err, animals) => {
       if(err) return reject(err);

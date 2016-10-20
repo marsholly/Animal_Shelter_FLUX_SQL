@@ -23,6 +23,13 @@ router.route('/hasOwner')
       .catch(err => res.status(400).send(err))
   })
 
+router.route('/someOwnerPets')
+  .get((req, res) => {
+    Animal.getSomeOwnerPets()
+      .then(animals => res.send(animals))
+      .catch(err => res.status(400).send(err))
+  })
+
 router.route('/:id')
   .get((req, res) => {
     Animal.getOnePet(req.params.id)

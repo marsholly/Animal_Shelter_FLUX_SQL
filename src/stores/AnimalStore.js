@@ -3,7 +3,8 @@ import { EventEmitter } from 'events';
 
 let _animals = [];
 let _animal = [];
-let _adoptAnimal = []
+let _adoptAnimal = [];
+let _owners =[];
 
 class AnimalStore extends EventEmitter {
   constructor() {
@@ -24,6 +25,10 @@ class AnimalStore extends EventEmitter {
           break;
         case 'RECEIVE_HAS_OWNER_ANIMALS':
           _adoptAnimal = action.payload.animals;
+          this.emit('CHANGE');
+          break;
+        case 'RECEIVE_SOME_OWNER_ANIMALS':
+          _owners = action.payload.owners;
           this.emit('CHANGE');
           break;
       }
@@ -48,6 +53,10 @@ class AnimalStore extends EventEmitter {
 
   getAllAdoptAnimal() {
     return _adoptAnimal;
+  }
+
+  getAllOwner() {
+    return _owners
   }
 }
 

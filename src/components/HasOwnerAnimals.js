@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import AnimalActions from '../actions/AnimalActions';
-// import ClientActions from '../actions/ClientActions';
 import AnimalStore from '../stores/AnimalStore';
-// import ClientStore from '../stores/ClientStore';
 import FormModal from './FormModal';
 import {Dropdown, NavItem} from 'react-materialize';
 
@@ -12,26 +10,21 @@ export default class HasOwnerAnimals extends Component {
     super();
     this.state = {
       animals: AnimalStore.getAllAdoptAnimal()
-      // clients: ClientStore.getAllClients()
     }
   }
 
   componentWillMount() {
     AnimalActions.getAllHasOwnerPets();
-    // ClientActions.getAllClients();
     AnimalStore.startListening(this._onChange);
-    // ClientStore.startListening(this._onChange);
   }
 
   componentWillUnmount() {
     AnimalStore.stopListening(this._onChange);
-    // ClientStore.stopListening(this._onChange);
   }
 
   _onChange = () => {
     this.setState({
       animals: AnimalStore.getAllAdoptAnimal()
-      // clients: ClientStore.getAllClients()
      });
   }
 
@@ -71,3 +64,11 @@ export default class HasOwnerAnimals extends Component {
     )
   }
 };
+
+
+// 
+// <Card header={<CardTitle reveal image={"assets/office.jpg"} waves='light'/>}
+//   title="Card Title"
+//   reveal={<p>Here is some more information about this product that is only revealed once clicked on.</p>}>
+//   <p><a href="#">This is a link</a></p>
+// </Card>

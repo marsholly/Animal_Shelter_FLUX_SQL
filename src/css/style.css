@@ -67,6 +67,15 @@ nav {
   margin-left: 15px;
   padding-bottom: 20px;
 }
+
+.mainPage {
+  font-size: 40px;
+  font-family: 'Comic Sans MS';
+  margin-top: 60px;
+  margin-bottom: 20px;
+  color: orange;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
 /*.addClientFrame {
   background-image: url('http://pic.58pic.com/58pic/13/73/29/62y58PICn43_1024.jpg');
   height: 500px;

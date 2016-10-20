@@ -21,6 +21,9 @@ const AnimalActions = {
   },
   getAllHasOwnerPets() {
     API.getAllHasOwnerPets();
+  },
+  getAllOwnerPets() {
+    API.getAllOwnerPets();
   }
 }
 
