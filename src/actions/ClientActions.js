@@ -9,8 +9,10 @@ const ClientActions = {
   },
   getOneClient(id) {
     API.getOneClient(id);
+  },
+  updateClientInfo(id, newInfo) {
+    API.updateClientInfo(id, newInfo);
   }
-
 }
 
 export default ClientActions;

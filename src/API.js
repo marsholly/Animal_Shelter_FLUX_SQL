@@ -19,6 +19,12 @@ const API = {
       .then(res =>  res.data)
       .then(ServerActions.receiveOneClient)
       .catch(console.error)
+  },
+  updateClientInfo(id, newInfo) {
+    axios.put(`/api/clients/${id}`, newInfo)
+      .then(res =>  res.data)
+      .then(this.getOneClient(id))
+      .catch(console.error)
   }
 }
 
