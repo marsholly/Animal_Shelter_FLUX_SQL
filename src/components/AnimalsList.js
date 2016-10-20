@@ -17,6 +17,12 @@ export default class AnimalsList extends Component {
     }
   }
 
+  componentDidUpdate(preProps, prevState) {
+    AnimalActions.getAllAnimals();
+    ClientActions.getAllClients();
+    return true
+  }
+
   componentWillMount() {
     AnimalActions.getAllAnimals();
     ClientActions.getAllClients();
@@ -70,7 +76,7 @@ export default class AnimalsList extends Component {
     let animalBlock;
     if (animals) {
         animalBlock = animals.map(animal => {
-        let {petName, petGender, petImg, petAge, breed, size, color, id} = animal;
+        let {petName, petGender, petImg, petAge, breed, size, color, id, ownerId} = animal;
         if(clients) {
           navItem = clients.map(client => {
             let clientId = client.id

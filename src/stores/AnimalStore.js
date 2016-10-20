@@ -11,7 +11,10 @@ class AnimalStore extends EventEmitter {
     AppDispatcher.register(action => {
       switch (action.type) {
         case 'RECEIVE_ALL_ANIMALS':
-          _animals = action.payload.animals;
+          let { animals } = action.payload;
+          _animals = animals.filter(animal => {
+            return animal.ownerId === null
+          })
           this.emit('CHANGE');
           break;
         case 'RECEIVE_ONE_ANIMAL':
