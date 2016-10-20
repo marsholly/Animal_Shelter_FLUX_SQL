@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import AnimalActions from '../actions/AnimalActions';
+import ClientActions from '../actions/ClientActions';
 import AnimalStore from '../stores/AnimalStore';
+import ClientStore from '../stores/ClientStore';
 import FormModal from './FormModal';
+import {Dropdown, NavItem} from 'react-materialize';
 
 
 export default class AnimalsList extends Component {
@@ -9,21 +12,28 @@ export default class AnimalsList extends Component {
     super();
     this.state = {
       animals: AnimalStore.getAllAnimals(),
+      clients: ClientStore.getAllClients(),
       id: ''
     }
   }
 
   componentWillMount() {
     AnimalActions.getAllAnimals();
+    ClientActions.getAllClients();
     AnimalStore.startListening(this._onChange);
+    ClientStore.startListening(this._onChange);
   }
 
   componentWillUnmount() {
     AnimalStore.stopListening(this._onChange);
+    ClientStore.stopListening(this._onChange);
   }
 
   _onChange = () => {
-    this.setState({ animals: AnimalStore.getAllAnimals() });
+    this.setState({
+      animals: AnimalStore.getAllAnimals(),
+      clients: ClientStore.getAllClients()
+     });
   }
 
   getAnimalId = (id) => {
@@ -39,8 +49,14 @@ export default class AnimalsList extends Component {
     AnimalActions.removeAnimal(id);
   }
 
+  adoptOne = (animalId, animal, clientId) => {
+    animal.ownerId = clientId;
+    AnimalActions.updateAnimalInfo(animalId, animal);
+  }
+
   render() {
-    let { animals } = this.state;
+    let { animals, clients } = this.state;
+    let navItem;
     let modalId = 'EditAnimalModal';
     let schema = {
       petName: {type: 'text', label: 'Name', required:true},
@@ -55,6 +71,14 @@ export default class AnimalsList extends Component {
     if (animals) {
         animalBlock = animals.map(animal => {
         let {petName, petGender, petImg, petAge, breed, size, color, id} = animal;
+        if(clients) {
+          navItem = clients.map(client => {
+            let clientId = client.id
+            return <NavItem key={clientId} onClick={this.adoptOne.bind(null, id, animal, clientId)}>{client.clientName}</NavItem>
+          })
+        } else {
+          navItem = <NavItem>loading...</NavItem>
+        }
         return (
           <div className="col s12 m3 clientBl" key={id}>
             <div className="card small">
@@ -73,7 +97,11 @@ export default class AnimalsList extends Component {
                 <div className="card-action text-center">
                   <a data-toggle='modal' data-target={'#'+ modalId} onClick={() => this.getAnimalId(id)}>EDIT</a>
                   <a onClick={() => this.removeAnimal(id)}>DELETE</a>
-                  <a onClick={() => this.adopt(id)}><i className="material-icons">child_friendly</i></a>
+                  <Dropdown trigger={
+                    <a><i className="material-icons">child_friendly</i></a>
+                  }>
+                    {navItem}
+                  </Dropdown>
                 </div>
               </div>
             </div>
