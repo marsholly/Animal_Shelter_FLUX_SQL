@@ -36,7 +36,7 @@ export default class NewClient extends Component {
       id: uuid()
     }
     ClientActions.createNewClient(newClient);
-    browserHistory.push({pathname: '/oneClientInfo', query:{clientId: newClient.id}})
+    browserHistory.push({pathname: '/newAnimalInfo', query:{clientId: newClient.id}})
   }
 
   render() {

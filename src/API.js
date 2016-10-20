@@ -53,7 +53,7 @@ const API = {
   },
   getOneAnimal(id) {
     axios.get(`/api/animals/${id}`)
-      .then(res =>  res.data)
+      .then(res =>res.data)
       .then(ServerActions.receiveOneAnimal)
       .catch(console.error)
   },

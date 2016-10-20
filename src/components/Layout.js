@@ -21,13 +21,13 @@ export default class Layout extends Component {
         </nav>
         <ul id="dropdown1" className="dropdown-content">
           <li><Link to="/newClient"><i className="material-icons">person add</i></Link></li>
-          <li><Link to="/allClient"><i className="material-icons">account_circle</i></Link></li>
+          <li><Link to="/allClients"><i className="material-icons">account_circle</i></Link></li>
           <li className="divider"></li>
           <li><Link to="/"><i className="material-icons">favorite</i></Link></li>
         </ul>
         <ul id="dropdown2" className="dropdown-content">
           <li><Link to="/newAnimal"><i className="material-icons">add_circle</i></Link></li>
-          <li><Link to="/"><i className="material-icons">content_paste</i></Link></li>
+          <li><Link to="/allAnimals"><i className="material-icons">content_paste</i></Link></li>
           <li className="divider"></li>
           <li><Link to="/"><i className="material-icons">favorite_border</i></Link></li>
         </ul>

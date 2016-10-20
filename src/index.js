@@ -9,6 +9,7 @@ import NewAnimal from './components/NewAnimal';
 import CheckClient from './components/CheckClient';
 import CheckAnimal from './components/CheckAnimal';
 import ClientsList from './components/ClientsList';
+import AnimalsList from './components/AnimalsList';
 
 
 render(
@@ -19,7 +20,8 @@ render(
       <Route path="newAnimal" component={NewAnimal} />
       <Route path="oneClientInfo" component={CheckClient} />
       <Route path="newAnimalInfo" component={CheckAnimal} />
-      <Route path="allClient" component={ClientsList} />
+      <Route path="allClients" component={ClientsList} />
+      <Route path="allAnimals" component={AnimalsList} />
     </Route>
   </Router>,
   document.getElementById('root')

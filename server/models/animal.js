@@ -1,6 +1,5 @@
 const db = require('../config/db');
 const squel = require('squel');
-const uuid = require('uuid');
 
 db.query(`CREATE TABLE IF NOT EXISTS ANIMALS(
   id varchar(50),
@@ -28,7 +27,7 @@ exports.getAllPets = () => {
 
 exports.createOnePet = (animal) => {
   return new Promise((resolve, reject) => {
-    let sql = squel.insert().into('ANIMALS').setFields(animal).set('id', uuid()).toString();
+    let sql = squel.insert().into('ANIMALS').setFields(animal).toString();
     db.query(sql, (err, animals) => {
       if (err) return reject(err);
       resolve('success');

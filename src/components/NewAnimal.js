@@ -46,7 +46,6 @@ export default class NewAnimal extends Component {
       color,
       id: uuid()
     }
-
     AnimalActions.createNewAnimal(newAnimal);
     browserHistory.push({pathname: '/newAnimalInfo', query:{animalId: newAnimal.id}})
   }

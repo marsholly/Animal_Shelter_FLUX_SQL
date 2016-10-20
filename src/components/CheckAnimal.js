@@ -8,13 +8,13 @@ export default class CheckAnimal extends Component {
   constructor() {
     super();
     this.state = {
-      client: AnimalStore.getOneAnimal(),
+      animal: AnimalStore.getOneAnimal(),
       id: ''
     }
   }
 
   componentWillMount() {
-    let id = this.props.location.query.clientId;
+    let id = this.props.location.query.animalId;
     AnimalActions.getOneAnimal(id);
     AnimalStore.startListening(this._onChange);
   }
@@ -24,7 +24,7 @@ export default class CheckAnimal extends Component {
   }
 
   _onChange = () => {
-    this.setState({ client: AnimalStore.getOneAnimal() });
+    this.setState({ animal: AnimalStore.getOneAnimal() });
   }
 
   getAnimalId = (id) => {
@@ -33,38 +33,40 @@ export default class CheckAnimal extends Component {
 
   _submitForm = (newInfo) => {
     let { id } = this.state;
-    let {phoneNumber} = newInfo;
-    newInfo.phoneNumber = Number(phoneNumber);
     AnimalActions.updateAnimalInfo(id, newInfo);
   }
 
   render() {
-    let { client } = this.state;
-    if (client) {
-      let {clientName, clientGender, clientImg, address, phoneNumber, id} = client;
+    let { animal } = this.state;
+    if (animal) {
+      let {petName, petGender, petImg, petAge, breed, size, color, id} = animal;
       let modalId = 'EditAnimalModal';
       let schema = {
-        clientName: {type: 'text', label: 'Name', required:true},
-        clientGender:{type:'text', label: 'Gender', required: true},
-        phoneNumber: {type: 'number', label: 'Phone Number: ', required: true},
-        clientImg: {type: 'text', label: 'Image URL:', required: true},
-        address: {type: 'text', label: 'Address', required: true}
+        petName: {type: 'text', label: 'Name', required:true},
+        petGender:{type:'text', label: 'Gender', required: true},
+        petImg: {type: 'text', label: 'Image URL:', required: true},
+        petAge: {type: 'text', label: 'Age:', required: true},
+        breed: {type: 'text', label: 'Breed:', required: true},
+        size: {type: 'text', label: 'Size:', required: true},
+        color: {type: 'text', label: 'Color', required: true}
       }
       return (
         <div className="container">
           <div className="col s12 m7">
-            <h2 className="header text-center">Personal Information Card</h2>
+            <h2 className="header text-center">Animal Information Card</h2>
             <div className="card horizontal personalCard">
               <div className="card-image">
-                <img src={clientImg} width='180' height='300' />
+                <img src={petImg} width='100' height='360' />
               </div>
               <div className="card-stacked">
                 <div className="card-content">
-                  <h2>NAME :  {clientName}</h2>
+                  <h2>NAME :  {petName}</h2>
                   <hr/>
-                  <h4>GENDER : { clientGender === 'male' ? <img src="http://findicons.com/files/icons/438/dating/256/male.png" width="30" height="30"/> : <img src="http://findicons.com/files/icons/438/dating/256/female.png" width="30" height="30"/>}</h4>
-                  <h4>ADDRESS :  {address}</h4>
-                  <h4>PHONENO :  {phoneNumber}</h4>
+                  <h4>GENDER : { petGender === 'male' ? <img src="http://findicons.com/files/icons/438/dating/256/male.png" width="30" height="30"/> : <img src="http://findicons.com/files/icons/438/dating/256/female.png" width="30" height="30"/>}</h4>
+                  <h4>AGE :  {petAge}</h4>
+                  <h4>BREED :  {breed}</h4>
+                  <h4>SIZE :  {size}</h4>
+                  <h4>COLOR :  {color}</h4>
                 </div>
                 <div className="card-action text-center">
                   <a data-toggle='modal' data-target={'#'+ modalId} onClick={() => this.getAnimalId(id)}>EDIT</a>
