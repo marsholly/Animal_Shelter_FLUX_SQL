@@ -73,7 +73,9 @@ exports.getAllHasOwnerPets = () => {
     let sql = squel.select()
                    .from('ANIMALS')
                    .field('petName')
+                   .field('petImg')
                    .field('clientName')
+                   .field('clientImg')
                    .join('CLIENTS', null, 'ANIMALS.ownerId = CLIENTS.id')
                    .toString();
     db.query(sql, (err, animals) => {

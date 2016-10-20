@@ -25,6 +25,12 @@ const ServerActions = {
       type: 'RECEIVE_ONE_ANIMAL',
       payload: {animal}
     })
+  },
+  receivehasOwnerAnimals(animals) {
+    AppDispatcher.dispatch ({
+      type: 'RECEIVE_HAS_OWNER_ANIMALS',
+      payload: {animals}
+    })
   }
 
 }

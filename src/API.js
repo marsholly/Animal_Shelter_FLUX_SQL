@@ -74,6 +74,12 @@ const API = {
       .then(res =>  res.data)
       .then(this.getAllAnimals())
       .catch(console.error)
+  },
+  getAllHasOwnerPets() {
+    axios.get('/api/animals/hasOwner')
+      .then(res =>  res.data)
+      .then(ServerActions.receivehasOwnerAnimals)
+      .catch(console.error)
   }
 }
 

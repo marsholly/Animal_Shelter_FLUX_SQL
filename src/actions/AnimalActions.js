@@ -18,6 +18,9 @@ const AnimalActions = {
   },
   updateAnimal(id, newInfo) {
     API.updateAnimal(id, newInfo);
+  },
+  getAllHasOwnerPets() {
+    API.getAllHasOwnerPets();
   }
 }
 
