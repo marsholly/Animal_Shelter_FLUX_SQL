@@ -12,6 +12,9 @@ const ClientActions = {
   },
   updateClientInfo(id, newInfo) {
     API.updateClientInfo(id, newInfo);
+  },
+  removeClient(id) {
+    API.removeClient(id);
   }
 }
 

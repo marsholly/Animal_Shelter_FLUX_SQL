@@ -41,6 +41,19 @@ nav {
   margin-right: auto;
 }
 
+.clientsContent {
+  height: 180px;
+}
+
+.clientBl {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: bolder;
+}
 /*.addClientFrame {
   background-image: url('http://pic.58pic.com/58pic/13/73/29/62y58PICn43_1024.jpg');
   height: 500px;

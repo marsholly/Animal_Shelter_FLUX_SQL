@@ -11,7 +11,7 @@ const API = {
   createNewClient(newClient) {
     axios.post('/api/clients/', newClient)
       .then(res =>  res.data)
-      .then(ServerActions.receiveAllClients)
+      .then(this.getAllClients())
       .catch(console.error)
   },
   getOneClient(id) {
@@ -24,6 +24,12 @@ const API = {
     axios.put(`/api/clients/${id}`, newInfo)
       .then(res =>  res.data)
       .then(this.getOneClient(id))
+      .catch(console.error)
+  },
+  removeClient(id) {
+    axios.delete(`/api/clients/${id}`)
+      .then(res =>  res.data)
+      .then(this.getAllClients())
       .catch(console.error)
   }
 }
